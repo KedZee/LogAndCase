@@ -1,7 +1,7 @@
 global class EmailController implements Schedulable {
 
     global void execute(SchedulableContext ctx) {
-        String email = 'klackotsckij@gmail.com';
+        String email = 'roducihuqut@vintomaper.com';
 
         List<Log__c> errorsList =  [SELECT Id, Name, Line_number__c, Message__c, Level__c, Source_Class__c, User_Id__c, Type__c  
                                     FROM Log__c WHERE Level__c = 'severe' OR Level__c =  'exception'];
