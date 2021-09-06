@@ -3,8 +3,8 @@ private class EmailControllerTest {
     
     public static String CRON_EXP = '0 0 0 15 3 ? 2022';
 
-    @isTest 
-    private static void testScheduledJob() {
+    @isTest
+    static testmethod void testScheduledJob() {
 
         List<Log__c> logList = new List<Log__c>();
         for (Integer i = 0; i < 10; i++) {

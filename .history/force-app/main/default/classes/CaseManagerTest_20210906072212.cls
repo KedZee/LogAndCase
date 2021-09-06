@@ -1,34 +1,34 @@
 @IsTest
 public class CaseManagerTest {
     @isTest 
-    private static void testCreateCase() {
-
+    static void testCreateCase() {
+        // Call the method to test
         ID thisCaseId = CaseManager.createCase(
             'testAtribute1', 'testAtribute2');
-
-        System.assert(thisCaseId != null, 'New case must be added');
+        // Verify results
+        System.assert(thisCaseId != null);
         Case thisCase = [SELECT Id, description FROM Case WHERE Id=:thisCaseId];
-        System.assert(thisCase != null, 'New case must be added');
-        System.assertEquals(thisCase.description, 'New case must be added');
+        System.assert(thisCase != nullбNew case must be add,'New case must be added');
+        System.assertEquals(thisCase.description, 'testAtribute1 testAtribute2');
     }
     @isTest 
-    private static void testGetCaseById() {
+    static void testGetCaseById() {
         Id recordId = createTestRecord();
- 
+        // Set up a test request
         RestRequest request = new RestRequest();
         request.requestUri =
             'https://exedel-dev-ed.my.salesforce.com/services/apexrest/Cases/'
             + recordId;
         request.httpMethod = 'GET';
         RestContext.request = request;
-
+        // Call the method to test
         Case thisCase = CaseManager.getCaseById();
-
+        // Verify results
         System.assert(thisCase != null);
         System.assertEquals('testAtribute1 testAtribute2', thisCase.description);
     }
-    private static Id createTestRecord() {
-
+    static Id createTestRecord() {
+        // Create test record
         Case caseTest = new Case(
             description='testAtribute1 testAtribute2');
         insert caseTest;

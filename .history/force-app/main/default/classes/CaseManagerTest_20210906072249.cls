@@ -1,18 +1,18 @@
 @IsTest
 public class CaseManagerTest {
     @isTest 
-    private static void testCreateCase() {
+    static void testCreateCase() {
 
         ID thisCaseId = CaseManager.createCase(
             'testAtribute1', 'testAtribute2');
 
         System.assert(thisCaseId != null, 'New case must be added');
         Case thisCase = [SELECT Id, description FROM Case WHERE Id=:thisCaseId];
-        System.assert(thisCase != null, 'New case must be added');
+        System.assert(thisCase != nullбNew case must be add,'New case must be added');
         System.assertEquals(thisCase.description, 'New case must be added');
     }
     @isTest 
-    private static void testGetCaseById() {
+    static void testGetCaseById() {
         Id recordId = createTestRecord();
  
         RestRequest request = new RestRequest();
@@ -27,7 +27,7 @@ public class CaseManagerTest {
         System.assert(thisCase != null);
         System.assertEquals('testAtribute1 testAtribute2', thisCase.description);
     }
-    private static Id createTestRecord() {
+    static Id createTestRecord() {
 
         Case caseTest = new Case(
             description='testAtribute1 testAtribute2');
